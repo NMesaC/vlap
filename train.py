@@ -315,7 +315,8 @@ parser.add_argument("--seed", type=int, default=31, help="seed")
 def main():
     global args
     args = parser.parse_args()
-    init_distributed_mode(args)
+    # TODO: Add a conditional so 1 GPU or CPU only systems can run this code
+    # init_distributed_mode(args)
     fix_random_seeds(args.seed)
     logger, training_stats = initialize_exp(args, "epoch", "loss")
     device = torch.device(args.device)
